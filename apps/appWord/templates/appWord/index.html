@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'appWord/css/style.css' %}">
+</head>
+<body>
+    <div id='wrapper'>
+        <p>Random Word (attempt: #{{ request.session.attempt }})</p>
+        <form action="/" method="POST">
+            {% csrf_token %}
+            <div id='textarea'>{{ rword }}</div>
+            <input type="submit" value="Generate">
+        </form>
+    </div>
+</body>
+</html>
